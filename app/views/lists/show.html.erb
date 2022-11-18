@@ -1,0 +1,21 @@
+
+
+<%= link_to new_list_bookmark_path(@list) do %>
+  <button class="btn btn-primary">add new movie</button>
+<% end %>
+
+
+<div class="cards">
+  <% @list.bookmarks.each do |bookmark| %>
+<div class="card-trip">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+  <div class="card-trip-infos">
+    <div>
+      <h2><%= bookmark.movie.title %></h2>
+      <p><%= bookmark.comment %></p>
+      <%= link_to "delete", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "are you sure?"} %>
+    </div>
+  </div>
+</div>
+  <% end %>
+</div>
